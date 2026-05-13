@@ -1,0 +1,36 @@
+{
+  "entities": {
+    "Registration": {
+      "title": "Event Registration",
+      "description": "Details of a user registration for Tech Fest 2026",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Full name of the participant"
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "Email address of the participant"
+        },
+        "userId": {
+          "type": "string",
+          "description": "Firebase Auth UID of the participant"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp of registration"
+        }
+      },
+      "required": ["name", "email", "userId", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/registrations/{userId}": {
+      "schema": "Registration",
+      "description": "Collection of event registrations keyed by user identity"
+    }
+  }
+}
